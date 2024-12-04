@@ -1,0 +1,29 @@
+---
+// Importar el módulo de typed.js
+import Typed from 'typed.js';
+
+const options = {
+  strings: ["Hola, soy un texto animado.", "Puedo escribir varias frases.", "¡Y soy muy fácil de usar!"],
+  typeSpeed: 50,
+  backSpeed: 50,
+  backDelay: 1000,
+  startDelay: 500,
+  loop: true,
+};
+---
+
+<!-- Este es el contenedor donde se mostrará el texto animado -->
+<div id="typed-output"></div>
+
+<script type="module">
+  import Typed from 'typed.js';
+
+  const typed = new Typed('#typed-output', {
+    strings: ["Hola, soy un texto animado.", "Puedo escribir varias frases.", "¡Y soy muy fácil de usar!"],
+    typeSpeed: 50,
+    backSpeed: 50,
+    backDelay: 1000,
+    startDelay: 500,
+    loop: true,
+  });
+</script>
