@@ -1,5 +1,4 @@
 ---
-
 ---
 
 <html lang="en">
@@ -16,19 +15,24 @@
 		<title>Gaspar Giménez</title>
 	</head>
 	<body>
-		<div class="w-full flex flex-col justify-start items-center bg-gray-800">
-			<div class="w-full h-[25vh] flex flex-col justify-center items-start gap-4 bg-gray-900 rounded-br-full fixed">
-				<div class="w-[40%] flex justify-center gap-4">
+		
+		<div class="background">
+			<div class="background-gradient"></div>
+			<div class="background-grid"></div>
+			<div class="background-dots"></div>
+		</div>
+		<div class="w-full flex flex-col justify-start items-center">
+			<div id="profile-container" class="w-[95%] h-[75vh] flex flex-col justify-center items-center gap-4 transition-all duration-500">
+				<div id="profile-header" class="w-full flex flex-col md:flex-col justify-center items-center md:justify-center md:items-center gap-4 md:w-[60%] shadow-xl pb-2 hover:shadow-white/5 rounded-lg transition-all duration-500 bg-slate-150 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-5 backdrop-saturate-100 backdrop-contrast-100">
 					<div>
-						<img src="src/assets/perfil.jpeg" alt="perfil" class="w-48 h-48 rounded-full" />
+						<img src="src/assets/perfil.jpeg" alt="perfil" class="w-32 h-32 md:w-48 md:h-48 rounded-full transition-all duration-500" />
 					</div>
 					<div class="flex flex-col justify-center">
-						<h1 class="text-6xl text-white font-bold">Gaspar Giménez</h1>
-						<h2 class="text-4xl text-white font-semibold"><span class="typing"></span></h2>
-						<div class="w-[40%] flex justify-start items-center py-1 gap-2 rounded">
-							<a href="mailto:gaspar.gimenez8@gmail.com" class="text-white text-lg underline">Email</a>
-							<a href="https://www.linkedin.com/in/gaspar-gim%C3%A9nez-23b489207/?originalSubdomain=ar" class="text-white text-lg underline">LinkedIn</a>
-		
+						<h1 class="text-3xl md:text-8xl text-white font-bold transition-all duration-500 ">Gaspar Giménez</h1>
+						<h2 class="text-xl md:text-center text-center md:text-4xl text-white font-semibold transition-all duration-500"><span class="typing"></span></h2>
+						<div id="profile-links" class="w-full flex md:justify-center md:items-center justify-center items-center gap-2 rounded">
+							<a href="mailto:gaspar.gimenez8@gmail.com" class="text-white underline">Email</a>
+							<a href="https://www.linkedin.com/in/gaspar-gim%C3%A9nez-23b489207/?originalSubdomain=ar" class="text-white underline">LinkedIn</a>
 						</div>
 					</div>
 				</div>
@@ -44,13 +48,128 @@
 
 
 	<script>
+		const profileHeader = document.getElementById('profile-header');
+		const profileContainer = document.getElementById('profile-container');
+		const profileImage = profileHeader?.querySelector('img');
+		const profileName = profileHeader?.querySelector('h1');
+		const profileDesc = profileHeader?.querySelector('h2');
+		const profileLinks = document.getElementById('profile-links');
+
+		window.addEventListener('scroll', () => {
+			if (window.scrollY > 50) {
+				// Cambiar a vista reducida
+				profileContainer?.classList.remove('md:justify-center', 'justify-center');
+				profileContainer?.classList.add('md:justify-start', 'justify-start');
+
+				profileHeader?.classList.add('pt-4', 'pl-4', 'fixed', 'h-[14vh]');
+				profileHeader?.classList.remove('md:justify-center', 'md:items-center', 'flex-col', 'md:flex-col');
+
+				profileImage?.classList.add('md:w-24', 'md:h-24', 'w-20', 'h-20');
+				profileImage?.classList.remove('w-48', 'h-48');
+
+				profileName?.classList.add('md:text-4xl', 'text-2xl');
+				profileName?.classList.remove('md:text-8xl', 'text-3xl');
+
+				profileDesc?.classList.add('text-lg', 'md:text-left', 'text-left');
+				profileDesc?.classList.remove('text-xl', 'md:text-center', 'text-center');
+
+				profileLinks?.classList.remove('md:justify-center', 'justify-center');
+				profileLinks?.classList.add('md:justify-start', 'justify-start');
+			} else {
+				// Restaurar vista inicial
+				profileContainer?.classList.add('md:justify-center', 'justify-center');
+				profileContainer?.classList.remove('md:justify-start', 'justify-start');
+
+				profileHeader?.classList.remove('pt-4', 'pl-4', 'fixed', 'h-[14vh]');
+				profileHeader?.classList.add('md:justify-center', 'flex-col', 'flex-col');
+
+				profileImage?.classList.add('w-48', 'h-48');
+				profileImage?.classList.remove('md:w-24', 'md:h-24', 'w-20', 'h-20');
+
+				profileName?.classList.add('md:text-8xl', 'text-3xl');
+				profileName?.classList.remove('md:text-4xl', 'text-2xl');
+
+				profileDesc?.classList.add('text-xl', 'md:text-center', 'text-center');
+				profileDesc?.classList.remove('text-lg', 'md:text-left', 'text-left');
+
+				profileLinks?.classList.add('md:justify-center', 'justify-center');
+				profileLinks?.classList.remove('md:justify-start', 'justify-start');
+			}
+		});
+
 		var typed = new Typed(".typing",{
-			strings: ["IT Technician","Computers Science","Bravo CTO", "Fullstack Developer"],
+			strings: ["IT Technician","Computer Science","Bravo CTO", "Fullstack Developer"],
 			typeSpeed: 100,
 			bacSpeed: 60,
 			loop: true
-		})
+		});
+
+		// Background animation
+		const backgroundDots = document.querySelector('.background-dots');
+		const numDots = 50; // Cantidad de puntos en el fondo
+
+		for (let i = 0; i < numDots; i++) {
+			const dot = document.createElement('div');
+			dot.classList.add('dot');
+			dot.style.left = `${Math.random() * 100}%`;
+			dot.style.top = `${Math.random() * 100}%`;
+			backgroundDots.appendChild(dot);
+		}
+
+		// Mover los puntos de manera larga y suave, sin depender del scroll
+		const dotSpeed = 0.15; // Velocidad base para el movimiento de los puntos
+		const maxMoveDistance = 0.5; // Distancia máxima que puede recorrer un punto en cada ciclo
+		let directionX = []; // Direcciones en X para cada punto
+		let directionY = []; // Direcciones en Y para cada punto
+
+		// Inicializamos las direcciones de movimiento aleatorias para cada punto
+		for (let i = 0; i < numDots; i++) {
+			directionX.push(Math.random() - 0.5); // Movimiento aleatorio horizontal
+			directionY.push(Math.random() - 0.5); // Movimiento aleatorio vertical
+		}
+
+		function animateDots() {
+			const dots = document.querySelectorAll('.dot');
+
+			dots.forEach((dot, index) => {
+				const x = parseFloat(dot.style.left);
+				const y = parseFloat(dot.style.top);
+
+				// Movimiento suave y largo de los puntos
+				let newX = x + directionX[index] * dotSpeed;
+				let newY = y + directionY[index] * dotSpeed;
+
+				// Asegurar que los puntos se mantengan dentro de los límites de la pantalla
+				if (newX < 0) {
+					newX = 0;
+					directionX[index] = Math.random() * maxMoveDistance; // Cambiar dirección
+				}
+				if (newX > 100) {
+					newX = 100;
+					directionX[index] = -(Math.random() * maxMoveDistance); // Cambiar dirección
+				}
+				if (newY < 0) {
+					newY = 0;
+					directionY[index] = Math.random() * maxMoveDistance; // Cambiar dirección
+				}
+				if (newY > 100) {
+					newY = 100;
+					directionY[index] = -(Math.random() * maxMoveDistance); // Cambiar dirección
+				}
+
+				dot.style.left = `${newX}%`;
+				dot.style.top = `${newY}%`;
+			});
+
+			// Continuar la animación de los puntos
+			requestAnimationFrame(animateDots);
+		}
+
+		// Iniciar la animación
+		animateDots();
+
+
+
 	</script>    
 	</body>
 </html>
-
