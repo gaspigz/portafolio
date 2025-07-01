@@ -22,8 +22,8 @@
 			<div class="background-dots"></div>
 		</div>
 		<div class="w-full flex flex-col justify-start items-center">
-			<div id="profile-container" class="w-[95%] h-[75vh] flex flex-col justify-center items-center gap-4 transition-all duration-500">
-				<div id="profile-header" class="w-full flex flex-col md:flex-col justify-center items-center md:justify-center md:items-center gap-4 md:w-[60%] shadow-xl pb-2 hover:shadow-white/5 rounded-lg transition-all duration-500 bg-slate-150 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-5 backdrop-saturate-100 backdrop-contrast-100">
+			<div id="profile-container" class="w-[95%] h-[45vh] flex flex-col justify-center items-center gap-4 transition-all duration-500">
+				<div id="profile-header" class="w-full flex flex-col md:flex-col justify-center items-center md:justify-center md:items-center z-10 gap-4 md:w-full shadow-xl pb-2 hover:shadow-white/5 rounded-lg transition-all duration-500 bg-[#0b0612]">
 					<div>
 						<img src="/assets/Perfil.jpeg" alt="perfil" class="w-32 h-32 md:w-48 md:h-48 rounded-full transition-all duration-500" />
 					</div>
@@ -37,8 +37,13 @@
 					</div>
 				</div>
 			</div>
-			<div class="w-full h-[25vh] flex flex-col justify-center items-center">
-				
+			<div class="w-full flex flex-col justify-center items-center md:flex-row gap-4">
+				<div class="w-3/4 bg-slate-150 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-5 backdrop-saturate-100 backdrop-contrast-100 rounded-lg border-2 border-white border-opacity-5 p-3">
+					<h1 class="text-white font-bold text-left text-xl"><span class="text-[#8b5cac] text-2xl">proactive </span>, interested in <span class="text-[#8b5cac] text-2xl">leading projects</span>, and a great <span class="text-[#8b5cac] text-2xl">team player</span>.</h1>
+				</div>
+				<div class="w-3/4 bg-slate-150 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-5 backdrop-saturate-100 backdrop-contrast-100 rounded-lg border-2 border-white border-opacity-5 p-3">
+					<h1 class="text-white font-bold text-right text-xl">With more than <span class="text-[#8b5cac] text-2xl">four years </span> of experience in the field, expertise is focused on <span class="text-[#8b5cac] text-2xl">efficiently and scalably </span> addressing computer-related challenges and web development, while maintaining the flexibility to adapt to <span class="text-[#8b5cac] text-2xl">various environments</span>.</h1>
+				</div>
 			</div>
 			<div class="w-full h-[80vh] flex flex-col justify-center items-center">
 				
@@ -61,7 +66,7 @@
 				profileContainer?.classList.remove('md:justify-center', 'justify-center');
 				profileContainer?.classList.add('md:justify-start', 'justify-start');
 
-				profileHeader?.classList.add('pt-4', 'pl-4', 'fixed', 'h-[14vh]');
+				profileHeader?.classList.add('pt-4', 'pl-4', 'fixed');
 				profileHeader?.classList.remove('md:justify-center', 'md:items-center', 'flex-col', 'md:flex-col');
 
 				profileImage?.classList.add('md:w-24', 'md:h-24', 'w-20', 'h-20');
@@ -80,7 +85,7 @@
 				profileContainer?.classList.add('md:justify-center', 'justify-center');
 				profileContainer?.classList.remove('md:justify-start', 'justify-start');
 
-				profileHeader?.classList.remove('pt-4', 'pl-4', 'fixed', 'h-[14vh]');
+				profileHeader?.classList.remove('pt-4', 'pl-4', 'fixed');
 				profileHeader?.classList.add('md:justify-center', 'flex-col', 'flex-col');
 
 				profileImage?.classList.add('w-48', 'h-48');
