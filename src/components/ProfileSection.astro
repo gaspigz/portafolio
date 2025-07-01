@@ -1,0 +1,69 @@
+---
+// src/components/ProfileSection.astro
+---
+
+<div id="profile-container" class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+    <div id="profile-card" class="profile-card glass-card w-full max-w-4xl p-6 sm:p-8 lg:p-12">
+        <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
+            <div class="flex-shrink-0">
+                <img id="profile-image" src="/assets/Perfil.jpeg" alt="Profile" 
+                     class="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-full object-cover border-4 border-purple-400/30">
+            </div>
+            <div class="flex-1 text-center lg:text-left">
+                <h1 id="profile-name" class="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                    Gaspar Giménez
+                </h1>
+                <h2 id="profile-title" class="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-semibold mb-6 text-gray-300">
+                    <span class="typing"></span>
+                </h2>
+                <div id="profile-links" class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                    <a href="mailto:gaspar.gimenez8@gmail.com" 
+                       class="glass-card px-6 py-3 text-purple-300 hover:text-white transition-all duration-300 hover:scale-105">
+                        📧 Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/gaspar-gim%C3%A9nez-23b489207/?originalSubdomain=ar" 
+                       class="glass-card px-6 py-3 text-purple-300 hover:text-white transition-all duration-300 hover:scale-105">
+                        💼 LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Initialize typed.js
+function initTyped() {
+    new Typed(".typing", {
+        strings: ["IT Technician", "Computer Science Student", "Bravo CTO", "Fullstack Developer"],
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop: true
+    });
+}
+
+// Handle scroll for profile minimization
+let isMinimized = false;
+
+function handleScroll() {
+    const scrollY = window.scrollY;
+    const profileCard = document.getElementById('profile-card');
+    const profileContainer = document.getElementById('profile-container');
+
+    if (scrollY > 100 && !isMinimized) {
+        isMinimized = true;
+        profileCard.classList.add('minimized');
+        profileContainer.style.paddingTop = '140px';
+    } else if (scrollY <= 100 && isMinimized) {
+        isMinimized = false;
+        profileCard.classList.remove('minimized');
+        profileContainer.style.paddingTop = '0';
+    }
+}
+
+// Initialize on load
+window.addEventListener('DOMContentLoaded', () => {
+    initTyped();
+    window.addEventListener('scroll', handleScroll);
+});
+</script>

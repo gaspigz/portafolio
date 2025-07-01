@@ -1,0 +1,39 @@
+---
+// src/components/Background.astro
+---
+
+<!-- Background -->
+<div class="antifish-bg">
+    <div class="antifish-pattern"></div>
+</div>
+
+<!-- Floating Elements -->
+<div class="floating-elements" id="floating-elements"></div>
+
+<script>
+// Initialize floating elements
+function createFloatingElements() {
+    const container = document.getElementById('floating-elements');
+    const numElements = 15;
+
+    for (let i = 0; i < numElements; i++) {
+        const element = document.createElement('div');
+        element.className = 'floating-element';
+        
+        const size = Math.random() * 60 + 20;
+        element.style.width = size + 'px';
+        element.style.height = size + 'px';
+        element.style.left = Math.random() * 100 + '%';
+        element.style.top = Math.random() * 100 + '%';
+        element.style.animationDelay = Math.random() * 15 + 's';
+        element.style.animationDuration = (Math.random() * 10 + 10) + 's';
+        
+        container.appendChild(element);
+    }
+}
+
+// Initialize on load
+window.addEventListener('DOMContentLoaded', () => {
+    createFloatingElements();
+});
+</script>
