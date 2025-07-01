@@ -1,180 +1,606 @@
----
----
-
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="preconnect" href="https://fonts.googleapis.com"/>
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
-		<link rel="stylesheet" href="/style/globals.css" />
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
-		<title>Gaspar Giménez</title>
-	</head>
-	<body>
-		
-		<div class="background">
-			<div class="background-gradient"></div>
-			<div class="background-grid"></div>
-			<div class="background-dots"></div>
-		</div>
-		<div class="w-full flex flex-col justify-start items-center">
-			<div id="profile-container" class="w-[95%] h-[45vh] flex flex-col justify-center items-center gap-4 transition-all duration-500">
-				<div id="profile-header" class="w-full flex flex-col md:flex-col justify-center items-center md:justify-center md:items-center z-10 gap-4 md:w-full shadow-xl pb-2 hover:shadow-white/5 rounded-lg transition-all duration-500 bg-[#0b0612]">
-					<div>
-						<img src="/assets/Perfil.jpeg" alt="perfil" class="w-32 h-32 md:w-48 md:h-48 rounded-full transition-all duration-500" />
-					</div>
-					<div class="flex flex-col justify-center">
-						<h1 class="text-3xl md:text-8xl text-white font-bold transition-all duration-500 ">Gaspar Giménez</h1>
-						<h2 class="text-xl md:text-center text-center md:text-4xl text-white font-semibold transition-all duration-500"><span class="typing"></span></h2>
-						<div id="profile-links" class="w-full flex md:justify-center md:items-center justify-center items-center gap-2 rounded">
-							<a href="mailto:gaspar.gimenez8@gmail.com" class="text-white underline">Email</a>
-							<a href="https://www.linkedin.com/in/gaspar-gim%C3%A9nez-23b489207/?originalSubdomain=ar" class="text-white underline">LinkedIn</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="w-full flex flex-col justify-center items-center md:flex-row gap-4">
-				<div class="w-3/4 bg-slate-150 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-5 backdrop-saturate-100 backdrop-contrast-100 rounded-lg border-2 border-white border-opacity-5 p-3">
-					<h1 class="text-white font-bold text-left text-xl"><span class="text-[#8b5cac] text-2xl">proactive </span>, interested in <span class="text-[#8b5cac] text-2xl">leading projects</span>, and a great <span class="text-[#8b5cac] text-2xl">team player</span>.</h1>
-				</div>
-				<div class="w-3/4 bg-slate-150 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-5 backdrop-saturate-100 backdrop-contrast-100 rounded-lg border-2 border-white border-opacity-5 p-3">
-					<h1 class="text-white font-bold text-right text-xl">With more than <span class="text-[#8b5cac] text-2xl">four years </span> of experience in the field, expertise is focused on <span class="text-[#8b5cac] text-2xl">efficiently and scalably </span> addressing computer-related challenges and web development, while maintaining the flexibility to adapt to <span class="text-[#8b5cac] text-2xl">various environments</span>.</h1>
-				</div>
-			</div>
-			<div class="w-full h-[80vh] flex flex-col justify-center items-center">
-				
-			</div>
-		</div>
-	
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <title>Gaspar Giménez</title>
+    <style>
+        * {
+            font-family: 'Montserrat', sans-serif;
+        }
 
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #8b5cac;
+            border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #9d6bb8;
+        }
 
-	<script>
-		const profileHeader = document.getElementById('profile-header');
-		const profileContainer = document.getElementById('profile-container');
-		const profileImage = profileHeader?.querySelector('img');
-		const profileName = profileHeader?.querySelector('h1');
-		const profileDesc = profileHeader?.querySelector('h2');
-		const profileLinks = document.getElementById('profile-links');
+        .antifish-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 25%, #16213e 50%, #0f0f23 75%, #0a0a0a 100%);
+        }
 
-		window.addEventListener('scroll', () => {
-			if (window.scrollY > 50) {
-				// Cambiar a vista reducida
-				profileContainer?.classList.remove('md:justify-center', 'justify-center');
-				profileContainer?.classList.add('md:justify-start', 'justify-start');
+        .antifish-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(139, 92, 172, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 40%, rgba(139, 92, 172, 0.02) 50%, transparent 60%);
+            background-size: 200px 200px, 300px 300px, 100px 100px;
+            animation: drift 20s ease-in-out infinite;
+        }
 
-				profileHeader?.classList.add('pt-4', 'pl-4', 'fixed');
-				profileHeader?.classList.remove('md:justify-center', 'md:items-center', 'flex-col', 'md:flex-col');
+        @keyframes drift {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(10px, -10px) rotate(1deg); }
+            50% { transform: translate(-5px, 15px) rotate(-1deg); }
+            75% { transform: translate(15px, 5px) rotate(0.5deg); }
+        }
 
-				profileImage?.classList.add('md:w-24', 'md:h-24', 'w-20', 'h-20');
-				profileImage?.classList.remove('w-48', 'h-48');
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
 
-				profileName?.classList.add('md:text-4xl', 'text-2xl');
-				profileName?.classList.remove('md:text-8xl', 'text-3xl');
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(139, 92, 172, 0.1), rgba(99, 102, 241, 0.1));
+            animation: float 15s ease-in-out infinite;
+        }
 
-				profileDesc?.classList.add('text-lg', 'md:text-left', 'text-left');
-				profileDesc?.classList.remove('text-xl', 'md:text-center', 'text-center');
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+            25% { transform: translateY(-30px) rotate(90deg); opacity: 0.6; }
+            50% { transform: translateY(-60px) rotate(180deg); opacity: 0.3; }
+            75% { transform: translateY(-30px) rotate(270deg); opacity: 0.6; }
+        }
 
-				profileLinks?.classList.remove('md:justify-center', 'justify-center');
-				profileLinks?.classList.add('md:justify-start', 'justify-start');
-			} else {
-				// Restaurar vista inicial
-				profileContainer?.classList.add('md:justify-center', 'justify-center');
-				profileContainer?.classList.remove('md:justify-start', 'justify-start');
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
 
-				profileHeader?.classList.remove('pt-4', 'pl-4', 'fixed');
-				profileHeader?.classList.add('md:justify-center', 'flex-col', 'flex-col');
+        .profile-card {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-				profileImage?.classList.add('w-48', 'h-48');
-				profileImage?.classList.remove('md:w-24', 'md:h-24', 'w-20', 'h-20');
+        .profile-card.minimized {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 1000;
+            padding: 16px;
+            border-radius: 12px;
+        }
 
-				profileName?.classList.add('md:text-8xl', 'text-3xl');
-				profileName?.classList.remove('md:text-4xl', 'text-2xl');
+        @media (min-width: 768px) {
+            .profile-card.minimized {
+                left: 40px;
+                right: auto;
+                width: auto;
+                max-width: 500px;
+            }
+        }
 
-				profileDesc?.classList.add('text-xl', 'md:text-center', 'text-center');
-				profileDesc?.classList.remove('text-lg', 'md:text-left', 'text-left');
+        .section-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
 
-				profileLinks?.classList.add('md:justify-center', 'justify-center');
-				profileLinks?.classList.remove('md:justify-start', 'justify-start');
-			}
-		});
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(139, 92, 172, 0.2);
+        }
 
-		var typed = new Typed(".typing",{
-			strings: ["IT Technician","Computer Science","Bravo CTO", "Fullstack Developer"],
-			typeSpeed: 100,
-			bacSpeed: 60,
-			loop: true
-		});
+        .skill-tag {
+            background: linear-gradient(135deg, rgba(139, 92, 172, 0.3), rgba(99, 102, 241, 0.3));
+            border: 1px solid rgba(139, 92, 172, 0.5);
+            transition: all 0.3s ease;
+        }
 
-		// Background animation
-		const backgroundDots = document.querySelector('.background-dots');
-		const numDots = 50; // Cantidad de puntos en el fondo
+        .skill-tag:hover {
+            transform: scale(1.05);
+            background: linear-gradient(135deg, rgba(139, 92, 172, 0.5), rgba(99, 102, 241, 0.5));
+        }
 
-		for (let i = 0; i < numDots; i++) {
-			const dot = document.createElement('div');
-			dot.classList.add('dot');
-			dot.style.left = `${Math.random() * 100}%`;
-			dot.style.top = `${Math.random() * 100}%`;
-			backgroundDots.appendChild(dot);
-		}
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
 
-		// Mover los puntos de manera larga y suave, sin depender del scroll
-		const dotSpeed = 0.15; // Velocidad base para el movimiento de los puntos
-		const maxMoveDistance = 0.5; // Distancia máxima que puede recorrer un punto en cada ciclo
-		let directionX = []; // Direcciones en X para cada punto
-		let directionY = []; // Direcciones en Y para cada punto
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-		// Inicializamos las direcciones de movimiento aleatorias para cada punto
-		for (let i = 0; i < numDots; i++) {
-			directionX.push(Math.random() - 0.5); // Movimiento aleatorio horizontal
-			directionY.push(Math.random() - 0.5); // Movimiento aleatorio vertical
-		}
+        .language-selector {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
 
-		function animateDots() {
-			const dots = document.querySelectorAll('.dot');
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
 
-			dots.forEach((dot, index) => {
-				const x = parseFloat(dot.style.left);
-				const y = parseFloat(dot.style.top);
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Background -->
+    <div class="antifish-bg">
+        <div class="antifish-pattern"></div>
+    </div>
+    
+    <!-- Floating Elements -->
+    <div class="floating-elements" id="floating-elements"></div>
 
-				// Movimiento suave y largo de los puntos
-				let newX = x + directionX[index] * dotSpeed;
-				let newY = y + directionY[index] * dotSpeed;
+    <!-- Language Selector -->
+    <div class="language-selector">
+        <select id="language-select" class="glass-card px-4 py-2 text-white bg-transparent border-none focus:outline-none cursor-pointer">
+            <option value="en" class="bg-gray-900">English</option>
+            <option value="es" class="bg-gray-900">Español</option>
+        </select>
+    </div>
 
-				// Asegurar que los puntos se mantengan dentro de los límites de la pantalla
-				if (newX < 0) {
-					newX = 0;
-					directionX[index] = Math.random() * maxMoveDistance; // Cambiar dirección
-				}
-				if (newX > 100) {
-					newX = 100;
-					directionX[index] = -(Math.random() * maxMoveDistance); // Cambiar dirección
-				}
-				if (newY < 0) {
-					newY = 0;
-					directionY[index] = Math.random() * maxMoveDistance; // Cambiar dirección
-				}
-				if (newY > 100) {
-					newY = 100;
-					directionY[index] = -(Math.random() * maxMoveDistance); // Cambiar dirección
-				}
+    <!-- Main Container -->
+    <div class="min-h-screen">
+        <!-- Profile Section -->
+        <div id="profile-container" class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+            <div id="profile-card" class="profile-card glass-card w-full max-w-4xl p-6 sm:p-8 lg:p-12">
+                <div class="flex flex-col lg:flex-row items-center gap-6 lg:gap-12">
+                    <div class="flex-shrink-0">
+                        <img id="profile-image" src="/assets/Perfil.jpeg" alt="Profile" 
+                             class="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 rounded-full object-cover border-4 border-purple-400/30">
+                    </div>
+                    <div class="flex-1 text-center lg:text-left">
+                        <h1 id="profile-name" class="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                            Gaspar Giménez
+                        </h1>
+                        <h2 id="profile-title" class="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-semibold mb-6 text-gray-300">
+                            <span class="typing"></span>
+                        </h2>
+                        <div id="profile-links" class="flex flex-wrap gap-4 justify-center lg:justify-start">
+                            <a href="mailto:gaspar.gimenez8@gmail.com" 
+                               class="glass-card px-6 py-3 text-purple-300 hover:text-white transition-all duration-300 hover:scale-105">
+                                📧 Email
+                            </a>
+                            <a href="https://www.linkedin.com/in/gaspar-gim%C3%A9nez-23b489207/?originalSubdomain=ar" 
+                               class="glass-card px-6 py-3 text-purple-300 hover:text-white transition-all duration-300 hover:scale-105">
+                                💼 LinkedIn
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-				dot.style.left = `${newX}%`;
-				dot.style.top = `${newY}%`;
-			});
+        <!-- Main Content -->
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+            <!-- About Section -->
+            <section id="about-section" class="mb-16 animate-fadeInUp">
+                <div class="section-card p-8">
+                    <h2 class="text-3xl font-bold mb-6 text-center" data-translate="about.title">About Me</h2>
+                    <p id="about-content" class="text-lg text-gray-300 leading-relaxed text-center max-w-4xl mx-auto" data-translate="about.description">
+                        <!-- Content will be populated by JavaScript -->
+                    </p>
+                </div>
+            </section>
 
-			// Continuar la animación de los puntos
-			requestAnimationFrame(animateDots);
-		}
+            <!-- Experience Section -->
+            <section id="experience-section" class="mb-16 animate-fadeInUp">
+                <div class="section-card p-8">
+                    <h2 class="text-3xl font-bold mb-8 text-center" data-translate="experience.title">Experience</h2>
+                    <div id="experience-content" class="space-y-6">
+                        <!-- Content will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
 
-		// Iniciar la animación
-		animateDots();
+            <!-- Education Section -->
+            <section id="education-section" class="mb-16 animate-fadeInUp">
+                <div class="section-card p-8">
+                    <h2 class="text-3xl font-bold mb-8 text-center" data-translate="education.title">Education & Languages</h2>
+                    <div id="education-content" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Content will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
 
+            <!-- Skills Section -->
+            <section id="skills-section" class="mb-16 animate-fadeInUp">
+                <div class="section-card p-8">
+                    <h2 class="text-3xl font-bold mb-8 text-center" data-translate="skills.title">Skills & Technologies</h2>
+                    
+                    <!-- Skills Content -->
+                    <div id="skills-content" class="mb-8">
+                        <!-- Content will be populated by JavaScript -->
+                    </div>
 
+                    <!-- Technology Carousel -->
+                    <div class="overflow-hidden bg-gradient-to-r from-transparent via-purple-900/20 to-transparent rounded-lg p-4">
+                        <div class="flex animate-marquee space-x-8 items-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="h-12 w-12 filter invert">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" alt="Laravel" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="h-12 w-12 filter invert">
+                            <!-- Duplicate for seamless loop -->
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="h-12 w-12 filter invert">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" alt="Laravel" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="h-12 w-12">
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-	</script>    
-	</body>
+            <!-- References Section -->
+            <section id="references-section" class="mb-16 animate-fadeInUp">
+                <div class="section-card p-8">
+                    <h2 class="text-3xl font-bold mb-8 text-center" data-translate="references.title">References</h2>
+                    <div id="references-content" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Content will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Sample data structure - replace with your actual data
+        const portfolioData = {
+            en: {
+                about: {
+                    title: "About Me",
+                    description: "Proactive professional interested in leading projects and being a great team player. With more than four years of experience in the field, expertise is focused on efficiently and scalably addressing computer-related challenges and web development, while maintaining the flexibility to adapt to various environments."
+                },
+                experience: {
+                    title: "Experience",
+                    items: [
+                        {
+                            company: "Bravo",
+                            jobTitle: "Co-founder & CTO",
+                            location: "Rosario, Argentina",
+                            fromDate: "Mar 2023",
+                            toDate: "Current",
+                            description: "As a Co-Founder of a tech startup, I handle a diverse range of tasks, including implementing new code, managing the database, deploying to production, and organizing the team. I led my team in developing our main web application using a Laravel - Next.js - MySQL stack, with Docker for containerization."
+                        },
+                        {
+                            company: "Avalian",
+                            jobTitle: "IT Support Specialist",
+                            location: "Rosario, Argentina",
+                            fromDate: "Jan 2021",
+                            toDate: "Feb 2023",
+                            description: "Provided comprehensive IT support, managed system infrastructure, and implemented solutions for various technical challenges across the organization."
+                        }
+                    ]
+                },
+                education: {
+                    title: "Education & Languages",
+                    items: [
+                        {
+                            place: "Universidad Tecnológica Nacional",
+                            description: "Systems Engineering",
+                            location: "Rosario, Argentina",
+                            fromDate: "2020",
+                            toDate: "Current",
+                            data: ["GPA: 8.5/10", "Specialized in Software Development", "Database Management"]
+                        },
+                        {
+                            place: "Asociación Cultural Inglesa",
+                            description: "B2 FCE FIRST Certificate",
+                            location: "Rosario, Argentina",
+                            fromDate: "2023",
+                            toDate: "2023",
+                            data: ["Score: 173", "Certified by Cambridge", "Upper-Intermediate Level"]
+                        }
+                    ]
+                },
+                skills: {
+                    title: "Skills & Technologies",
+                    items: [
+                        "I possess expertise in web development, with the adaptability to thrive in diverse environments, showcasing a versatile approach to tackling challenges.",
+                        "I have experience working with the following programming languages: JavaScript, PHP, C, SQL (In Oracle or MySQL databases), Python, and Haskell.",
+                        "I have worked with technologies like: HTML, Bootstrap, TailwindCSS, GIT, Docker, Ajax, React, Next.js, Laravel, and various deployment platforms."
+                    ]
+                },
+                references: {
+                    title: "References",
+                    items: [
+                        {
+                            name: "Lic. Alejandro Sebastián González",
+                            title: "Systems Development Leader",
+                            email: "agonzales@avalian.com",
+                            company: "Avalian"
+                        },
+                        {
+                            name: "Téc. Federico Zurita",
+                            title: "IT Leader",
+                            email: "fzurita@avalian.com",
+                            company: "Avalian"
+                        }
+                    ]
+                }
+            },
+            es: {
+                about: {
+                    title: "Sobre Mí",
+                    description: "Profesional proactivo interesado en liderar proyectos y ser un gran jugador de equipo. Con más de cuatro años de experiencia en el campo, la experiencia se centra en abordar de manera eficiente y escalable los desafíos relacionados con la informática y el desarrollo web, manteniendo la flexibilidad para adaptarse a varios entornos."
+                },
+                experience: {
+                    title: "Experiencia",
+                    items: [
+                        {
+                            company: "Bravo",
+                            jobTitle: "Co-fundador y CTO",
+                            location: "Rosario, Argentina",
+                            fromDate: "Mar 2023",
+                            toDate: "Actual",
+                            description: "Como Co-Fundador de una startup tecnológica, manejo una amplia gama de tareas, incluyendo la implementación de nuevo código, gestión de la base de datos, despliegue a producción y organización del equipo. Lideré mi equipo en el desarrollo de nuestra aplicación web principal usando un stack Laravel - Next.js - MySQL, con Docker para contenedorización."
+                        },
+                        {
+                            company: "Avalian",
+                            jobTitle: "Especialista en Soporte IT",
+                            location: "Rosario, Argentina",
+                            fromDate: "Ene 2021",
+                            toDate: "Feb 2023",
+                            description: "Proporcioné soporte IT integral, gestioné la infraestructura del sistema e implementé soluciones para varios desafíos técnicos en toda la organización."
+                        }
+                    ]
+                },
+                education: {
+                    title: "Educación e Idiomas",
+                    items: [
+                        {
+                            place: "Universidad Tecnológica Nacional",
+                            description: "Ingeniería en Sistemas",
+                            location: "Rosario, Argentina",
+                            fromDate: "2020",
+                            toDate: "Actual",
+                            data: ["Promedio: 8.5/10", "Especializado en Desarrollo de Software", "Gestión de Bases de Datos"]
+                        },
+                        {
+                            place: "Asociación Cultural Inglesa",
+                            description: "Certificado B2 FCE FIRST",
+                            location: "Rosario, Argentina",
+                            fromDate: "2023",
+                            toDate: "2023",
+                            data: ["Puntuación: 173", "Certificado por Cambridge", "Nivel Intermedio Superior"]
+                        }
+                    ]
+                },
+                skills: {
+                    title: "Habilidades y Tecnologías",
+                    items: [
+                        "Poseo experiencia en desarrollo web, con la capacidad de adaptarme para prosperar en diversos entornos, mostrando un enfoque versátil para abordar desafíos.",
+                        "Tengo experiencia trabajando con los siguientes lenguajes de programación: JavaScript, PHP, C, SQL (en bases de datos Oracle o MySQL), Python y Haskell.",
+                        "He trabajado con tecnologías como: HTML, Bootstrap, TailwindCSS, GIT, Docker, Ajax, React, Next.js, Laravel y varias plataformas de despliegue."
+                    ]
+                },
+                references: {
+                    title: "Referencias",
+                    items: [
+                        {
+                            name: "Lic. Alejandro Sebastián González",
+                            title: "Líder de Desarrollo de Sistemas",
+                            email: "agonzales@avalian.com",
+                            company: "Avalian"
+                        },
+                        {
+                            name: "Téc. Federico Zurita",
+                            title: "Líder de IT",
+                            email: "fzurita@avalian.com",
+                            company: "Avalian"
+                        }
+                    ]
+                }
+            }
+        };
+
+        let currentLanguage = 'en';
+        let isMinimized = false;
+
+        // Initialize floating elements
+        function createFloatingElements() {
+            const container = document.getElementById('floating-elements');
+            const numElements = 15;
+
+            for (let i = 0; i < numElements; i++) {
+                const element = document.createElement('div');
+                element.className = 'floating-element';
+                
+                const size = Math.random() * 60 + 20;
+                element.style.width = size + 'px';
+                element.style.height = size + 'px';
+                element.style.left = Math.random() * 100 + '%';
+                element.style.top = Math.random() * 100 + '%';
+                element.style.animationDelay = Math.random() * 15 + 's';
+                element.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                
+                container.appendChild(element);
+            }
+        }
+
+        // Initialize typed.js
+        function initTyped() {
+            new Typed(".typing", {
+                strings: ["IT Technician", "Computer Science Student", "Bravo CTO", "Fullstack Developer"],
+                typeSpeed: 100,
+                backSpeed: 60,
+                loop: true
+            });
+        }
+
+        // Populate content based on language
+        function populateContent() {
+            const data = portfolioData[currentLanguage];
+
+            // About section
+            document.getElementById('about-content').textContent = data.about.description;
+
+            // Experience section
+            const experienceContainer = document.getElementById('experience-content');
+            experienceContainer.innerHTML = '';
+            data.experience.items.forEach(item => {
+                const experienceCard = document.createElement('div');
+                experienceCard.className = 'glass-card p-6 hover:scale-[1.02] transition-all duration-300';
+                experienceCard.innerHTML = `
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h3 class="text-xl font-bold text-purple-300">${item.jobTitle}</h3>
+                        <span class="text-sm text-gray-400">${item.fromDate} - ${item.toDate}</span>
+                    </div>
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                        <h4 class="text-lg font-semibold">${item.company}</h4>
+                        <span class="text-sm text-gray-400">${item.location}</span>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">${item.description}</p>
+                `;
+                experienceContainer.appendChild(experienceCard);
+            });
+
+            // Education section
+            const educationContainer = document.getElementById('education-content');
+            educationContainer.innerHTML = '';
+            data.education.items.forEach(item => {
+                const educationCard = document.createElement('div');
+                educationCard.className = 'glass-card p-6 hover:scale-[1.02] transition-all duration-300';
+                educationCard.innerHTML = `
+                    <h3 class="text-lg font-bold text-purple-300 mb-2">${item.description}</h3>
+                    <h4 class="text-md font-semibold mb-2">${item.place}</h4>
+                    <p class="text-sm text-gray-400 mb-3">${item.location} • ${item.fromDate} - ${item.toDate}</p>
+                    <ul class="space-y-1">
+                        ${item.data.map(point => `<li class="text-sm text-gray-300">• ${point}</li>`).join('')}
+                    </ul>
+                `;
+                educationContainer.appendChild(educationCard);
+            });
+
+            // Skills section
+            const skillsContainer = document.getElementById('skills-content');
+            skillsContainer.innerHTML = '';
+            data.skills.items.forEach(skill => {
+                const skillItem = document.createElement('div');
+                skillItem.className = 'skill-tag px-4 py-3 rounded-lg mb-4';
+                skillItem.innerHTML = `<p class="text-gray-200">${skill}</p>`;
+                skillsContainer.appendChild(skillItem);
+            });
+
+            // References section
+            const referencesContainer = document.getElementById('references-content');
+            referencesContainer.innerHTML = '';
+            data.references.items.forEach(ref => {
+                const refCard = document.createElement('div');
+                refCard.className = 'glass-card p-6 hover:scale-[1.02] transition-all duration-300';
+                refCard.innerHTML = `
+                    <h3 class="text-lg font-bold text-purple-300 mb-2">${ref.name}</h3>
+                    <p class="text-md font-semibold mb-1">${ref.title}</p>
+                    <p class="text-sm text-gray-400 mb-2">${ref.company}</p>
+                    <a href="mailto:${ref.email}" class="text-sm text-blue-400 hover:text-blue-300 transition-colors">
+                        ${ref.email}
+                    </a>
+                `;
+                referencesContainer.appendChild(refCard);
+            });
+
+            // Update titles
+            document.querySelector('[data-translate="about.title"]').textContent = data.about.title;
+            document.querySelector('[data-translate="experience.title"]').textContent = data.experience.title;
+            document.querySelector('[data-translate="education.title"]').textContent = data.education.title;
+            document.querySelector('[data-translate="skills.title"]').textContent = data.skills.title;
+            document.querySelector('[data-translate="references.title"]').textContent = data.references.title;
+        }
+
+        // Handle scroll for profile minimization
+        function handleScroll() {
+            const scrollY = window.scrollY;
+            const profileCard = document.getElementById('profile-card');
+            const profileContainer = document.getElementById('profile-container');
+
+            if (scrollY > 100 && !isMinimized) {
+                isMinimized = true;
+                profileCard.classList.add('minimized');
+                profileContainer.style.paddingTop = '140px';
+            } else if (scrollY <= 100 && isMinimized) {
+                isMinimized = false;
+                profileCard.classList.remove('minimized');
+                profileContainer.style.paddingTop = '0';
+            }
+        }
+
+        // Language selector
+        document.getElementById('language-select').addEventListener('change', function(e) {
+            currentLanguage = e.target.value;
+                        populateContent();
+        });
+
+        // On page load
+        window.addEventListener('DOMContentLoaded', () => {
+            createFloatingElements();
+            initTyped();
+            populateContent();
+            window.addEventListener('scroll', handleScroll);
+        });
+    </script>
+</body>
 </html>
