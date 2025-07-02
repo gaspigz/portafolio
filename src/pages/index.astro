@@ -10,7 +10,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
     <title>Gaspar Giménez</title>
-    <link rel="stylesheet" href="/globals.css" />
+    <link rel="stylesheet" href="/style/globals.css" />
+
+
 </head>
 <body class="bg-gray-900 text-white overflow-x-hidden">
     <!-- Background -->
@@ -54,6 +56,10 @@
                             <a href="https://www.linkedin.com/in/gaspar-gim%C3%A9nez-23b489207/?originalSubdomain=ar" 
                                class="glass-card px-6 py-3 text-purple-300 hover:text-white transition-all duration-300 hover:scale-105">
                                 💼 LinkedIn
+                            </a>
+                            <a href="https://github.com/gaspigz" 
+                               class="glass-card px-6 py-3 text-purple-300 hover:text-white transition-all duration-300 hover:scale-105">
+                                🐱 GitHub
                             </a>
                         </div>
                     </div>
@@ -107,7 +113,8 @@
                     <div class="overflow-hidden bg-gradient-to-r from-transparent via-purple-900/20 to-transparent rounded-lg p-4">
                         <div class="flex animate-marquee space-x-8 items-center">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="h-12 w-12 filter invert">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" alt="Laravel" class="h-12 w-12">
+                            
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" alt="Laravel" class="h-12 w-12">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="h-12 w-12">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="h-12 w-12">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="h-12 w-12">
@@ -116,10 +123,13 @@
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" class="h-12 w-12">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="h-12 w-12">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="h-12 w-12">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="h-12 w-12 filter invert">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/haskell/haskell-original.svg" alt="Haskell" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/erlang/erlang-original.svg" alt="Erlang" class="h-12 w-12">
                             <!-- Duplicate for seamless loop -->
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js" class="h-12 w-12 filter invert">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" alt="Laravel" class="h-12 w-12">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/laravel/laravel-original.svg" alt="Laravel" class="h-12 w-12">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="h-12 w-12">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" class="h-12 w-12">
                             <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" class="h-12 w-12">
@@ -145,154 +155,7 @@
 
     <script>
         // Sample data structure - replace with your actual data
-        const portfolioData = {
-            en: {
-                about: {
-                    title: "About Me",
-                    description: "Proactive professional interested in leading projects and being a great team player. With more than four years of experience in the field, expertise is focused on efficiently and scalably addressing computer-related challenges and web development, while maintaining the flexibility to adapt to various environments."
-                },
-                experience: {
-                    title: "Experience",
-                    items: [
-                        {
-                            company: "Bravo",
-                            jobTitle: "Co-founder & CTO",
-                            location: "Rosario, Argentina",
-                            fromDate: "Mar 2023",
-                            toDate: "Current",
-                            description: "As a Co-Founder of a tech startup, I handle a diverse range of tasks, including implementing new code, managing the database, deploying to production, and organizing the team. I led my team in developing our main web application using a Laravel - Next.js - MySQL stack, with Docker for containerization."
-                        },
-                        {
-                            company: "Avalian",
-                            jobTitle: "IT Support Specialist",
-                            location: "Rosario, Argentina",
-                            fromDate: "Jan 2021",
-                            toDate: "Feb 2023",
-                            description: "Provided comprehensive IT support, managed system infrastructure, and implemented solutions for various technical challenges across the organization."
-                        }
-                    ]
-                },
-                education: {
-                    title: "Education & Languages",
-                    items: [
-                        {
-                            place: "Universidad Tecnológica Nacional",
-                            description: "Systems Engineering",
-                            location: "Rosario, Argentina",
-                            fromDate: "2020",
-                            toDate: "Current",
-                            data: ["GPA: 8.5/10", "Specialized in Software Development", "Database Management"]
-                        },
-                        {
-                            place: "Asociación Cultural Inglesa",
-                            description: "B2 FCE FIRST Certificate",
-                            location: "Rosario, Argentina",
-                            fromDate: "2023",
-                            toDate: "2023",
-                            data: ["Score: 173", "Certified by Cambridge", "Upper-Intermediate Level"]
-                        }
-                    ]
-                },
-                skills: {
-                    title: "Skills & Technologies",
-                    items: [
-                        "I possess expertise in web development, with the adaptability to thrive in diverse environments, showcasing a versatile approach to tackling challenges.",
-                        "I have experience working with the following programming languages: JavaScript, PHP, C, SQL (In Oracle or MySQL databases), Python, and Haskell.",
-                        "I have worked with technologies like: HTML, Bootstrap, TailwindCSS, GIT, Docker, Ajax, React, Next.js, Laravel, and various deployment platforms."
-                    ]
-                },
-                references: {
-                    title: "References",
-                    items: [
-                        {
-                            name: "Lic. Alejandro Sebastián González",
-                            title: "Systems Development Leader",
-                            email: "agonzales@avalian.com",
-                            company: "Avalian"
-                        },
-                        {
-                            name: "Téc. Federico Zurita",
-                            title: "IT Leader",
-                            email: "fzurita@avalian.com",
-                            company: "Avalian"
-                        }
-                    ]
-                }
-            },
-            es: {
-                about: {
-                    title: "Sobre Mí",
-                    description: "Profesional proactivo interesado en liderar proyectos y ser un gran jugador de equipo. Con más de cuatro años de experiencia en el campo, la experiencia se centra en abordar de manera eficiente y escalable los desafíos relacionados con la informática y el desarrollo web, manteniendo la flexibilidad para adaptarse a varios entornos."
-                },
-                experience: {
-                    title: "Experiencia",
-                    items: [
-                        {
-                            company: "Bravo",
-                            jobTitle: "Co-fundador y CTO",
-                            location: "Rosario, Argentina",
-                            fromDate: "Mar 2023",
-                            toDate: "Actual",
-                            description: "Como Co-Fundador de una startup tecnológica, manejo una amplia gama de tareas, incluyendo la implementación de nuevo código, gestión de la base de datos, despliegue a producción y organización del equipo. Lideré mi equipo en el desarrollo de nuestra aplicación web principal usando un stack Laravel - Next.js - MySQL, con Docker para contenedorización."
-                        },
-                        {
-                            company: "Avalian",
-                            jobTitle: "Especialista en Soporte IT",
-                            location: "Rosario, Argentina",
-                            fromDate: "Ene 2021",
-                            toDate: "Feb 2023",
-                            description: "Proporcioné soporte IT integral, gestioné la infraestructura del sistema e implementé soluciones para varios desafíos técnicos en toda la organización."
-                        }
-                    ]
-                },
-                education: {
-                    title: "Educación e Idiomas",
-                    items: [
-                        {
-                            place: "Universidad Tecnológica Nacional",
-                            description: "Ingeniería en Sistemas",
-                            location: "Rosario, Argentina",
-                            fromDate: "2020",
-                            toDate: "Actual",
-                            data: ["Promedio: 8.5/10", "Especializado en Desarrollo de Software", "Gestión de Bases de Datos"]
-                        },
-                        {
-                            place: "Asociación Cultural Inglesa",
-                            description: "Certificado B2 FCE FIRST",
-                            location: "Rosario, Argentina",
-                            fromDate: "2023",
-                            toDate: "2023",
-                            data: ["Puntuación: 173", "Certificado por Cambridge", "Nivel Intermedio Superior"]
-                        }
-                    ]
-                },
-                skills: {
-                    title: "Habilidades y Tecnologías",
-                    items: [
-                        "Poseo experiencia en desarrollo web, con la capacidad de adaptarme para prosperar en diversos entornos, mostrando un enfoque versátil para abordar desafíos.",
-                        "Tengo experiencia trabajando con los siguientes lenguajes de programación: JavaScript, PHP, C, SQL (en bases de datos Oracle o MySQL), Python y Haskell.",
-                        "He trabajado con tecnologías como: HTML, Bootstrap, TailwindCSS, GIT, Docker, Ajax, React, Next.js, Laravel y varias plataformas de despliegue."
-                    ]
-                },
-                references: {
-                    title: "Referencias",
-                    items: [
-                        {
-                            name: "Lic. Alejandro Sebastián González",
-                            title: "Líder de Desarrollo de Sistemas",
-                            email: "agonzales@avalian.com",
-                            company: "Avalian"
-                        },
-                        {
-                            name: "Téc. Federico Zurita",
-                            title: "Líder de IT",
-                            email: "fzurita@avalian.com",
-                            company: "Avalian"
-                        }
-                    ]
-                }
-            }
-        };
+        import portfolioData from '../data/portfolioData.js';
 
         let currentLanguage = 'en';
         let isMinimized = false;
